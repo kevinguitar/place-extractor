@@ -2,21 +2,17 @@ from Utils import is_int
 from Utils import is_float
 
 
-class SortBy:
-    Rating = "rating"
-    Distance = "distance"
-
-
 class Conditions:
 
     def __init__(self, latitude, longitude, keyword,
-                 distance=5, filename=None, sort=SortBy.Rating):
-        self.latitude = latitude
-        self.longitude = longitude
+                 distance=5, filename=None):
+        self.latitude = float(latitude)
+        self.longitude = float(longitude)
         self.keyword = keyword
-        self.distance = distance
-        self.filename = "附近的" + keyword if filename is None else filename
-        self.sort = sort
+        self.distance = int(distance)
+        self.filename = "附近的" + keyword \
+            if filename is None or len(filename) == 0 \
+            else filename
 
 
 class ConditionDesk:
@@ -52,7 +48,7 @@ class ConditionDesk:
     @staticmethod
     def ask_distance():
         while True:
-            distance = input("你想搜尋方圓幾公里以內的結果？")
+            distance = input("你想搜尋方圓幾公尺以內的結果？")
             if is_int(distance):
                 return distance
             else:
@@ -62,13 +58,3 @@ class ConditionDesk:
     def ask_filename():
         while True:
             return input("輸出的檔案名稱？（按Enter跳過）")
-
-    @staticmethod
-    def ask_sort():
-        while True:
-            sort = input("你想按照什麼排序？（1.評分  2.距離）")
-            if int(sort) == 1 or int(sort) == 2:
-                return sort
-            else:
-                print("錯誤：請輸入1或2")
-                continue
