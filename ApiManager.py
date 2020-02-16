@@ -31,9 +31,9 @@ def __get_places_by_page(gmaps, conditions, next_page_token):
     results = places.places_nearby(
         client=gmaps,
         location=conditions.location,
-        radius=conditions.distance,
         language='zh-TW',
         keyword=conditions.keyword,
+        rank_by='distance',
         page_token=next_page_token
     )
     sleep(2)

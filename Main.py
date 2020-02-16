@@ -8,19 +8,18 @@ if __name__ == '__main__':
     print("歡迎光臨！告訴我搜尋地點的條件吧～\n")
 
     # Ask for all conditions
-    # location = ConditionDesk.ask_location()
-    # keyword = ConditionDesk.ask_keyword()
-    # distance = ConditionDesk.ask_distance()
-    # filename = ConditionDesk.ask_filename()
+    location = ConditionDesk.ask_location()
+    keyword = ConditionDesk.ask_keyword()
+    filename = ConditionDesk.ask_filename()
 
-    location = '25.0264233,121.5279489'
-    keyword = '飯店'
-    distance = '1000'
-    filename = 'test'
+    # location = '25.0264233,121.5279489'
+    # keyword = '飯店'
+    # filename = 'test'
 
     conditions = Conditions(
-        location=location, keyword=keyword,
-        distance=distance, filename=filename
+        location=location,
+        keyword=keyword,
+        filename=filename
     )
 
     # Make Google Map API requests
