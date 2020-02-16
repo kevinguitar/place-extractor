@@ -7,6 +7,7 @@ HEADER = [
     '地址',
     '電話',
     '評分',
+    '評分人數'
     '網站',
     'Google Map連結'
 ]
@@ -28,7 +29,8 @@ def extract_to_excel(places, filename):
         sheet.write(i, 1, place.get('vicinity'))
         sheet.write(i, 2, place.get('formatted_phone_number'))
         sheet.write(i, 3, str(place.get('rating')))
-        sheet.write(i, 4, place.get('website'))
-        sheet.write(i, 5, MAP_URL + place.get('place_id'))
+        sheet.write(i, 4, str(place.get('user_ratings_total')))
+        sheet.write(i, 5, place.get('website'))
+        sheet.write(i, 6, MAP_URL + place.get('place_id'))
 
     return wb.save(filename + '.xlsx')
