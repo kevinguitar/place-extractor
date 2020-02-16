@@ -33,4 +33,4 @@ def extract_to_excel(places, filename):
         sheet.write(i, 5, place.get('website'))
         sheet.write(i, 6, MAP_URL + place.get('place_id'))
 
-    return wb.save(filename + '.xlsx')
+    return wb.save(filename + '.xls')
