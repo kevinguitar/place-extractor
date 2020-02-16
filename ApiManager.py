@@ -30,10 +30,7 @@ def get_places(conditions):
 def __get_places_by_page(gmaps, conditions, next_page_token):
     results = places.places_nearby(
         client=gmaps,
-        location={
-            "lat": conditions.latitude,
-            "lng": conditions.longitude
-        },
+        location=conditions.location,
         radius=conditions.distance,
         language='zh-TW',
         keyword=conditions.keyword,

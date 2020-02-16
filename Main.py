@@ -8,20 +8,18 @@ if __name__ == '__main__':
     print("歡迎光臨！告訴我搜尋地點的條件吧～\n")
 
     # Ask for all conditions
-    lat = ConditionDesk.ask_latitude()
-    lon = ConditionDesk.ask_longitude()
-    keyword = ConditionDesk.ask_keyword()
-    distance = ConditionDesk.ask_distance()
-    filename = ConditionDesk.ask_filename()
+    # location = ConditionDesk.ask_location()
+    # keyword = ConditionDesk.ask_keyword()
+    # distance = ConditionDesk.ask_distance()
+    # filename = ConditionDesk.ask_filename()
 
-    # lat = '25.0264233'
-    # lon = '121.5279489'
-    # keyword = '飯店'
-    # distance = '1000'
-    # filename = 'test'
+    location = '25.0264233,121.5279489'
+    keyword = '飯店'
+    distance = '1000'
+    filename = 'test'
 
     conditions = Conditions(
-        latitude=lat, longitude=lon, keyword=keyword,
+        location=location, keyword=keyword,
         distance=distance, filename=filename
     )
 
