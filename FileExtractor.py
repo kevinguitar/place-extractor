@@ -45,7 +45,7 @@ def extract_to_excel(places, filename):
         sheet.write(i, 2, place.get('distance').get('text'))
         sheet.write(i, 3, place.get('duration').get('text'))
         sheet.write(i, 4, place.get('formatted_phone_number'))
-        sheet.write(i, 5, place.get('rating'))
+        sheet.write(i, 5, str(place.get('rating')))
         sheet.write(i, 6, place.get('user_ratings_total'))
         sheet.write(i, 7, __make_hyperlink(place.get('website')))
         sheet.write(i, 8, __make_hyperlink(MAP_URL + place.get('place_id')))
