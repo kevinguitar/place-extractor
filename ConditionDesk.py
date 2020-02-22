@@ -24,7 +24,7 @@ class ConditionDesk:
     @staticmethod
     def ask_keyword():
         while True:
-            keyword = input("你想查詢什麼關鍵字？\n")
+            keyword = input("\n你想查詢什麼關鍵字？\n")
             if len(keyword) > 0:
                 return keyword
             else:
@@ -34,4 +34,4 @@ class ConditionDesk:
     @staticmethod
     def ask_filename():
         while True:
-            return input("輸出的檔案名稱？（按Enter跳過）\n")
+            return input("\n輸出的檔案名稱？（按Enter跳過）\n")

@@ -22,7 +22,7 @@ if __name__ == '__main__':
     # keyword = '飯店'
     # filename = 'test'
     # radius = 1000   # Just for test
-
+    #
     # conditions = Conditions(
     #     location=location,
     #     keyword=keyword,
