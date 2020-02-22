@@ -1,11 +1,12 @@
 class Conditions:
 
-    def __init__(self, location, keyword, filename=None):
+    def __init__(self, location, keyword, filename=None, radius=None):
         self.location = location
         self.keyword = keyword
         self.filename = "附近的" + keyword \
             if filename is None or len(filename) == 0 \
             else filename
+        self.radius = radius
 
 
 class ConditionDesk:

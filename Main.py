@@ -12,15 +12,23 @@ if __name__ == '__main__':
     keyword = ConditionDesk.ask_keyword()
     filename = ConditionDesk.ask_filename()
 
-    # location = '25.0264233,121.5279489'
-    # keyword = '飯店'
-    # filename = 'test'
-
     conditions = Conditions(
         location=location,
         keyword=keyword,
         filename=filename
     )
+
+    # location = '25.0264233,121.5279489'
+    # keyword = '飯店'
+    # filename = 'test'
+    # radius = 1000   # Just for test
+
+    # conditions = Conditions(
+    #     location=location,
+    #     keyword=keyword,
+    #     filename=filename,
+    #     radius=radius
+    # )
 
     # Make Google Map API requests
     print("\n取得資料中... 嘟嘟嘟...\n")
