@@ -1,6 +1,7 @@
 from FitSheetWrapper import FitSheetWrapper
-import xlwt
 from xlwt import Workbook
+import xlwt
+import os
 
 HEADER = [
     '名稱',
@@ -37,4 +38,5 @@ def extract_to_excel(places, filename):
         sheet.write(i, 7, place.get('website'))
         sheet.write(i, 8, MAP_URL + place.get('place_id'))
 
-    return wb.save(filename + '.xls')
+    desktop = os.path.join(os.path.join(os.environ['USERPROFILE']), 'Desktop\\')
+    return wb.save(desktop + filename + '.xls')
