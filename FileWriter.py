@@ -61,7 +61,9 @@ def write_to_excel_and_open(places, filename):
 
 
 def __make_hyperlink(link):
-    return Formula('HYPERLINK("%s";"%s")' % (link, link))
+    # The limit of hyperlink in Excel is 255 characters
+    return link if link is None or len(link) > 255 \
+        else Formula('HYPERLINK("%s";"%s")' % (link, link))
 
 
 def __open_file(filepath):
