@@ -1,7 +1,9 @@
-from xlwt import Workbook
-from xlwt import Formula
-import xlwt
 import os
+import platform
+import subprocess
+import xlwt
+from xlwt import Formula
+from xlwt import Workbook
 
 HEADER = [
     '名稱',
@@ -28,7 +30,7 @@ COLUMN_WIDTH = [
 MAP_URL = 'https://www.google.com/maps/place/?q=place_id:'
 
 
-def extract_to_excel(places, filename):
+def write_to_excel_and_open(places, filename):
     wb = Workbook()
 
     sheet = wb.add_sheet('Sheet 1')
@@ -51,9 +53,19 @@ def extract_to_excel(places, filename):
         sheet.write(i, 7, __make_hyperlink(place.get('website')))
         sheet.write(i, 8, __make_hyperlink(MAP_URL + place.get('place_id')))
 
-    desktop = os.path.expanduser('~/Desktop/')
-    return wb.save(desktop + filename + '.xls')
+    file_path = os.path.expanduser('~/Desktop/') + filename + '.xls'
+    wb.save(file_path)
+    __open_file(file_path)
 
 
 def __make_hyperlink(link):
     return Formula('HYPERLINK("%s";"%s")' % (link, link))
+
+
+def __open_file(filepath):
+    if platform.system() == 'Darwin':  # macOS
+        subprocess.call(('open', filepath))
+    elif platform.system() == 'Windows':  # Windows
+        os.startfile(filepath)
+    else:  # linux variants
+        subprocess.call(('xdg-open', filepath))

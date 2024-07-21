@@ -1,38 +1,28 @@
 from ConditionDesk import ConditionDesk
 from ConditionDesk import Conditions
 from ApiManager import get_places
-from FileWriter import extract_to_excel
+from FileWriter import write_to_excel_and_open
 
 if __name__ == '__main__':
-    print("歡迎光臨！告訴我搜尋地點的條件吧～\n")
+    print("Hello, let me build a table of places for you!\n")
 
-    # Ask for all conditions
+    # Ask for the search conditions
     place_url = ConditionDesk.ask_place_url()
     keyword = ConditionDesk.ask_keyword()
     filename = ConditionDesk.ask_filename()
+    radius = ConditionDesk.ask_radius()
 
     conditions = Conditions(
         place_url=place_url,
         keyword=keyword,
-        filename=filename
+        filename=filename,
+        radius=radius
     )
 
-    # location = '25.0264233,121.5279489'
-    # keyword = '飯店'
-    # filename = 'test'
-    # radius = 1000   # Just for test
-    #
-    # conditions = Conditions(
-    #     location=location,
-    #     keyword=keyword,
-    #     filename=filename,
-    #     radius=radius
-    # )
-
     # Make Google Map API requests
-    print("\n取得資料中... 嘟嘟嘟...\n")
+    print("\nSearching places, hang tight...")
     places = get_places(conditions)
 
     # Extract result into Excel file
-    extract_to_excel(places, conditions.filename)
-    print("大功告成！檔案已輸出 <3\n")
+    write_to_excel_and_open(places, conditions.filename)
+    print("\nThe search has completed, see you again!")
