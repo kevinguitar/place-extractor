@@ -1,4 +1,4 @@
-# PlaceExtractor
+# place-extractor
 
 A simple python script developed using Google Map API, you can extract all the places
 matching your conditions into an excel file.
