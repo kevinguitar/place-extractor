@@ -1,7 +1,7 @@
 class Conditions:
 
-    def __init__(self, location, keyword, filename=None, radius=None):
-        self.location = location
+    def __init__(self, place_url, keyword, filename=None, radius=None):
+        self.place_url = place_url
         self.keyword = keyword
         self.filename = "附近的" + keyword \
             if filename is None or len(filename) == 0 \
@@ -12,11 +12,11 @@ class Conditions:
 class ConditionDesk:
 
     @staticmethod
-    def ask_location():
+    def ask_place_url():
         while True:
-            loc = input("請輸入查詢地點的經緯度：ex（23.52,121.64）\n")
-            if loc.count(',') == 1 and loc.count('.') == 2:
-                return loc
+            place_url = input("請輸入查詢地點的經緯度：ex（23.52,121.64）\n")
+            if len(place_url) > 0:
+                return place_url
             else:
                 print("錯誤：請用逗號隔開小數（緯度,經度）")
                 continue

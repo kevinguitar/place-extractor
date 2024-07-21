@@ -1,19 +1,18 @@
 from ConditionDesk import ConditionDesk
 from ConditionDesk import Conditions
 from ApiManager import get_places
-from FileExtractor import extract_to_excel
+from FileWriter import extract_to_excel
 
 if __name__ == '__main__':
-
     print("歡迎光臨！告訴我搜尋地點的條件吧～\n")
 
     # Ask for all conditions
-    location = ConditionDesk.ask_location()
+    place_url = ConditionDesk.ask_place_url()
     keyword = ConditionDesk.ask_keyword()
     filename = ConditionDesk.ask_filename()
 
     conditions = Conditions(
-        location=location,
+        place_url=place_url,
         keyword=keyword,
         filename=filename
     )
