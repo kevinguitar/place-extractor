@@ -39,12 +39,13 @@ https://www.google.com/maps/place/{name}/@{location},15z/
 
 - **Search keyword**: e.g. Restaurant
 - **Output filename** (optional): e.g. Restaurants nearby home
-- **Radius** (optional): Search radius in meters, leave it empty to search by most relevant places regardless the
-  distance
+- **Radius** (optional): Search radius in meters, leave it empty to search by most relevant places regardless distance
 
 ### View the results
 
-The results will be stored on Desktop, and the script will open the file automatically by the default application.
+The results will be stored on the Desktop, and the script will open the file automatically by the default application.
+
+![Screenshot 2024-07-21 at 6 22 00 PM](https://github.com/user-attachments/assets/551a23b9-86c1-42f3-adbc-f454a4736d7a)
 
 ## License
 
